@@ -1,30 +1,21 @@
 # dotfiles
 
-Based on [this](https://www.atlassian.com/git/tutorials/dotfiles) blog post.
+dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
 ## Quickstart
 
-Run this in your terminal:
+### Ubuntu/Debian
+
+1. Install stow
+
 ```bash
-curl https://gist.github.com/itatabitovski/0ff595d648012827d378c6ffe7be0fee | bash
+sudo apt -y install stow
 ```
 
-The above command will execute the following things:
 ```bash
-mkdir -p ~/src
-git clone --bare https://github.com/itatabitovski/dotfiles.git $HOME/src/dotfiles
+mkdir -p ~/projects
+cd projects
+git clone https://github.com/itatabitovski/dotfiles.git
 
-alias dotfiles="/usr/bin/git --git-dir=$HOME/src/dotfiles --work-tree=$HOME"
-
-dotfiles checkout
-if [ $? = 0 ]; then
-    echo "Checked out config.";
-else
-    echo "Backing up pre-existing dot files.";
-    mkdir -p ~/.dotfiles-backup
-    dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
-fi;
-
-dotfiles checkout
-dotfiles config status.showUntrackedFiles no
+alias stow="stow -t ~/ -d ~/projects/dotfiles"
 ```
