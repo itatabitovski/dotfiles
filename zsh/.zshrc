@@ -30,6 +30,11 @@ alias vim="nvim"
 alias ls="ls -a --color"
 alias ll="ls -l --color --group-directories-first"
 
+if [[ $(uname) == "Linux" ]]; then
+  alias pbcopy="xclip -selection clipboard"
+  alias pbpaste="xclip -selection clipboard -o"
+fi
+
 # Functions
 asdf-update-all() {
   for tool in $(asdf plugin list); do
