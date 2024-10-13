@@ -1,5 +1,10 @@
 local wezterm = require "wezterm"
 
+local is_darwin = function()
+	return wezterm.target_triple:find("darwin") ~= nil
+end
+local mod_key = is_darwin() and "CMD" or "ALT"
+
 local config = wezterm.config_builder()
 
 config.color_scheme = "Monokai Dark (Gogh)"
@@ -16,18 +21,20 @@ config.use_fancy_tab_bar = false
 
 -- config.disable_default_key_bindings = true
 
+
+
 act = wezterm.action
 config.keys = {
-  { mods = "ALT", key = "Enter", action=act.ToggleFullScreen },
+  { mods = mod_key, key = "Enter", action=act.ToggleFullScreen },
 
-  { mods = "ALT", key = "t", action=act.SpawnTab "CurrentPaneDomain" },
-  { mods = "ALT", key = "d", action=act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
-  { mods = "ALT|SHIFT", key = "d", action=wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
+  { mods = mod_key, key = "t", action=act.SpawnTab "CurrentPaneDomain" },
+  { mods = mod_key, key = "d", action=act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { mods = mod_key .. "|SHIFT", key = "d", action=wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
 
-  { mods = "ALT", key = "LeftArrow", action = act.ActivatePaneDirection "Left",},
-  { mods = "ALT", key = "RightArrow", action = act.ActivatePaneDirection "Right",},
-  { mods = "ALT", key = "UpArrow", action = act.ActivatePaneDirection "Up",},
-  { mods = "ALT", key = "DownArrow", action = act.ActivatePaneDirection "Down",},
+  { mods = mod_key, key = "LeftArrow", action = act.ActivatePaneDirection "Left",},
+  { mods = mod_key, key = "RightArrow", action = act.ActivatePaneDirection "Right",},
+  { mods = mod_key, key = "UpArrow", action = act.ActivatePaneDirection "Up",},
+  { mods = mod_key, key = "DownArrow", action = act.ActivatePaneDirection "Down",},
 }
 for i = 1, 8 do
     table.insert(config.keys, { mods = "ALT", key = tostring(i), action = act.ActivateTab(i-1) })
