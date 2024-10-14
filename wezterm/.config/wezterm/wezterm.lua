@@ -37,7 +37,7 @@ config.keys = {
   { mods = mod_key, key = "DownArrow", action = act.ActivatePaneDirection "Down",},
 }
 for i = 1, 8 do
-    table.insert(config.keys, { mods = "ALT", key = tostring(i), action = act.ActivateTab(i-1) })
+    table.insert(config.keys, { mods = mod_key, key = tostring(i), action = act.ActivateTab(i-1) })
 end
 
 return config
