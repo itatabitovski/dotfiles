@@ -20,8 +20,15 @@ setopt SHARE_HISTORY
 setopt APPENDHISTORY
 # END HISTORY
 
-bindkey $'\e[5~' history-search-backward
-bindkey $'\e[6~' history-search-forward
+setopt interactivecomments
+
+if [[ $(uname) == "Darwin" ]]; then
+  bindkey "^[[A" history-beginning-search-backward
+  bindkey "^[[B" history-beginning-search-forward
+else
+  bindkey "^[OA" history-beginning-search-backward
+  bindkey "^[OB" history-beginning-search-forward
+fi
 
 # Aliases
 alias stow="stow -t ~/ -d ~/projects/dotfiles"
@@ -36,7 +43,7 @@ if [[ $(uname) == "Linux" ]]; then
 fi
 
 # Functions
-asdf-update-all() {
+function asdf-update-all() {
   for tool in $(asdf plugin list); do
     asdf install "${tool}" latest  \
       &&  asdf global "${tool}" latest  \
