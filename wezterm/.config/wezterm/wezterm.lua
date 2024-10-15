@@ -7,7 +7,7 @@ local mod_key = is_darwin() and "CMD" or "ALT"
 
 local config = wezterm.config_builder()
 
-config.color_scheme = "Monokai Dark (Gogh)"
+config.color_scheme = "Adventure"
 config.font = wezterm.font("JetBrains Mono")
 config.default_cursor_style = "SteadyBlock"
 
