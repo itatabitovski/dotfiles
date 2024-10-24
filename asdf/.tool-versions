@@ -1,13 +1,13 @@
 neovim 0.10.2
 python 3.13.0t
-starship 1.20.1
+starship 1.21.1
 fzf 0.55.0
 jq 1.7.1
 bat 0.24.0
 delta 0.18.2
 golang 1.23.2
 zellij 0.40.1
-nodejs 22.9.0
+nodejs 23.0.0
 helix 24.07
 rclone 1.68.1
 kind 0.24.0
