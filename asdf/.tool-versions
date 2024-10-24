@@ -11,3 +11,4 @@ nodejs 23.0.0
 helix 24.07
 rclone 1.68.1
 kind 0.24.0
+kubectl 1.31.2
