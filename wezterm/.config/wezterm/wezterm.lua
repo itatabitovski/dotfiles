@@ -13,15 +13,8 @@ config.default_cursor_style = "SteadyBlock"
 
 config.window_close_confirmation = "NeverPrompt"
 
--- tab bar
 config.hide_tab_bar_if_only_one_tab = false
---config.tab_and_split_indices_are_zero_based = true
---config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
-
--- config.disable_default_key_bindings = true
-
-
 
 act = wezterm.action
 config.keys = {
@@ -39,5 +32,12 @@ config.keys = {
 for i = 1, 8 do
     table.insert(config.keys, { mods = mod_key, key = tostring(i), action = act.ActivateTab(i-1) })
 end
+
+config.unix_domains = {
+  {
+    name = "unix",
+  },
+}
+config.default_gui_startup_args = { "connect", "unix" }
 
 return config
