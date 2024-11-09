@@ -8,6 +8,10 @@ add_newline = true
 disabled = false
 time_format = "%H:%M"
 
+[kubernetes]
+symbol = "󱃾 "
+disabled = false
+
 # Output of starship preset nerd-font-symbols 
 [aws]
 symbol = "  "
