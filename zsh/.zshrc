@@ -30,12 +30,17 @@ else
   bindkey "^[OB" history-beginning-search-forward
 fi
 
+export PATH=~/bin:$PATH
+export PATH=~/go/bin:$PATH
+
 # Aliases
 alias stow="stow -t ~/ -d ~/projects/dotfiles"
 
 alias vim="nvim"
-alias ls="ls -a --color"
+alias ls="ls --color"
 alias ll="ls -l --color --group-directories-first"
+
+alias k="kubectl"
 
 if [[ $(uname) == "Linux" ]]; then
   alias pbcopy="xclip -selection clipboard"
@@ -61,6 +66,8 @@ source <(fzf --zsh)
 
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
+eval "$(kubectl completion zsh)"
 
-# initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
+# kubesess
+source ~/.kube/kubesess/scripts/sh/kubesess.sh
+source ~/.kube/kubesess/scripts/sh/completion.sh
