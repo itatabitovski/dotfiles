@@ -10,6 +10,7 @@ time_format = "%H:%M"
 
 [kubernetes]
 symbol = "󱃾 "
+format = '''[$symbol](blue bold)\([$context](red bold)/[$namespace](green bold)\)'''
 disabled = false
 
 # Output of starship preset nerd-font-symbols 
