@@ -22,6 +22,10 @@ setopt APPENDHISTORY
 
 setopt interactivecomments
 
+# zsh plugins
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 if [[ $(uname) == "Darwin" ]]; then
   bindkey "^[[A" history-beginning-search-backward
   bindkey "^[[B" history-beginning-search-forward
@@ -71,3 +75,42 @@ eval "$(kubectl completion zsh)"
 # kubesess
 source ~/.kube/kubesess/scripts/sh/kubesess.sh
 source ~/.kube/kubesess/scripts/sh/completion.sh
+
+
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/ilin/.lmstudio/bin"
+
+
+function dc-svc {
+  svc=$(ls --color=never -d ~/docker-services/* | awk '{print $NF}' | cut -d '/' -f 5 | fzf)
+  echo "${svc}"
+}
+
+function dc-start {
+  if [ -z "${1}" ]; then
+    local svc=$(dc-svc)
+  fi
+  cd ~/docker-services/"${svc}"
+  echo "Starting docker-compose service ${svc}..."
+  docker compose up --remove-orphans --force-recreate -d
+}
+
+function dc-stop {
+  if [ -z "${1}" ]; then
+    local svc=$(dc-svc)
+  fi
+  cd ~/docker-services/"${svc}"
+  echo "Stopping docker-compose service ${svc}..."
+  docker compose stop; docker compose rm -f
+}
+
+function dc-restart {
+  if [ -z "${1}" ]; then
+    local svc=$(dc-svc)
+  fi
+  dc-stop "${svc}"
+  dc-start "${svc}"
+}
