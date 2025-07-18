@@ -53,7 +53,10 @@ fi
 
 # Functions
 function asdf-update-all() {
+  echo "Update asdf plugins..."
+  asdf plugin-update --all
   for tool in $(asdf plugin list); do
+    echo "Processing ${tool}..."
     asdf install "${tool}" latest  \
       &&  asdf global "${tool}" latest  \
       &&  echo "${tool} set globally"
