@@ -117,3 +117,7 @@ function dc-restart {
   dc-stop "${svc}"
   dc-start "${svc}"
 }
+
+function trivy {
+  docker run --pull always -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.cache/trivy:/root/.cache/  aquasec/trivy:latest "$@"
+}
