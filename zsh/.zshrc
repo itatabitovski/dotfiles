@@ -54,19 +54,21 @@ fi
 # Functions
 function asdf-update-all() {
   echo "Update asdf plugins..."
-  asdf plugin-update --all
+  asdf plugin update --all
   for tool in $(asdf plugin list); do
     echo "Processing ${tool}..."
     asdf install "${tool}" latest  \
-      &&  asdf global "${tool}" latest  \
+      &&  asdf set --home "${tool}" latest  \
       &&  echo "${tool} set globally"
   done
 }
 
 # Tools
-. "$HOME/.asdf/asdf.sh"
+export ASDF_DATA_DIR=~/.asdf
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
+source <(asdf completion zsh)
 # append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
