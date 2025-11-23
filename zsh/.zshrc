@@ -37,6 +37,8 @@ fi
 export PATH=~/bin:$PATH
 export PATH=~/go/bin:$PATH
 
+export PATH=~/.local/bin:$PATH
+
 # Aliases
 alias stow="stow -t ~/ -d ~/projects/dotfiles"
 
@@ -64,11 +66,19 @@ function asdf-update-all() {
 }
 
 # Tools
+
+## asdf
 export ASDF_DATA_DIR=~/.asdf
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
-source <(asdf completion zsh)
-# append completions to fpath
-fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+#source <(asdf completion zsh)
+## append completions to fpath
+#fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+
+## mise
+eval "$(~/.local/bin/mise activate zsh)"
+source <(mise completion zsh)
+#
+
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
