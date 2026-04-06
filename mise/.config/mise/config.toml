@@ -17,6 +17,7 @@ rustic = "latest"
 neovim = "latest"
 crush = "latest"
 yq = "latest"
+age = "latest"
 
 [settings]
 experimental = true
