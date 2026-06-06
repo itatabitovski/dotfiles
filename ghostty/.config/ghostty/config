@@ -1,0 +1,51 @@
+theme = Adventure
+font-family = "JetBrains Mono"
+cursor-style = block
+cursor-style-blink = false
+
+confirm-close-surface = false
+
+gtk-tabs-location = bottom
+gtk-wide-tabs = false
+
+# Toggle fullscreen
+keybind = alt+enter=toggle_fullscreen
+keybind = super+enter=toggle_fullscreen
+
+# New tab
+keybind = alt+t=new_tab
+keybind = super+t=new_tab
+
+# Splits
+keybind = alt+d=new_split:right
+keybind = alt+shift+d=new_split:down
+keybind = super+d=new_split:right
+keybind = super+shift+d=new_split:down
+
+# Pane navigation
+keybind = alt+left=goto_split:left
+keybind = alt+right=goto_split:right
+keybind = alt+up=goto_split:up
+keybind = alt+down=goto_split:down
+keybind = super+left=goto_split:left
+keybind = super+right=goto_split:right
+keybind = super+up=goto_split:up
+keybind = super+down=goto_split:down
+
+# Tab switching by index (1-8)
+keybind = alt+1=goto_tab:1
+keybind = alt+2=goto_tab:2
+keybind = alt+3=goto_tab:3
+keybind = alt+4=goto_tab:4
+keybind = alt+5=goto_tab:5
+keybind = alt+6=goto_tab:6
+keybind = alt+7=goto_tab:7
+keybind = alt+8=goto_tab:8
+keybind = super+1=goto_tab:1
+keybind = super+2=goto_tab:2
+keybind = super+3=goto_tab:3
+keybind = super+4=goto_tab:4
+keybind = super+5=goto_tab:5
+keybind = super+6=goto_tab:6
+keybind = super+7=goto_tab:7
+keybind = super+8=goto_tab:8
