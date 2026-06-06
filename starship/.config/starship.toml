@@ -10,6 +10,8 @@ $hostname\
 $kubernetes\
 $python\
 $directory\
+$git_branch\
+$git_status\
 $line_break\
 $time\
 $status\
