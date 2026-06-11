@@ -14,5 +14,7 @@ return {
     })
 
     vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+    vim.keymap.set("n", "<M-p>", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+    vim.keymap.set("n", "<M-P>", "<cmd>Telescope live_grep<cr>", { desc = "Live grep files in cwd" })
   end
 }

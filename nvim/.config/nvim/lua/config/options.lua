@@ -38,8 +38,14 @@ vim.opt.incsearch = true
 
 vim.opt.updatetime = 50
 
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldcolumn = "auto"
+
 vim.opt.swapfile = false
 vim.opt.backup = false
+vim.opt.autoread = true
 
 
 py3venv = vim.fn.stdpath("data") .. "/.py3venv"
