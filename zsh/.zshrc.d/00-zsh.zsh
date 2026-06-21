@@ -42,6 +42,8 @@ export PATH=~/.local/bin:$PATH
 # Aliases
 alias stow="stow -t ~/ -d ~/projects/dotfiles"
 
+alias a="cd ~/projects"
+
 alias vim="nvim"
 alias ls="ls --color"
 alias ll="ls -l --color --group-directories-first"
