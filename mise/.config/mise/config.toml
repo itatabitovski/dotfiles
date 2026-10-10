@@ -25,4 +25,5 @@ zellij = "latest"
 
 [settings]
 experimental = true
-install_before = "7d"
+minimum_release_age = "7d"
+age.key_file = "~/.config/mise/age.txt"
