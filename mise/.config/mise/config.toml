@@ -3,7 +3,6 @@ age = "latest"
 bat = "latest"
 crush = "latest"
 fzf = "latest"
-"github:anomalyco/opencode" = "latest"
 "github:sinelaw/fresh" = "latest"
 go = "latest"
 jq = "latest"
@@ -21,7 +20,6 @@ rustic = "latest"
 starship = "latest"
 uv = "latest"
 yq = "latest"
-zellij = "latest"
 
 [settings]
 experimental = true
